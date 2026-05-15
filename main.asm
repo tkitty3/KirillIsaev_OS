@@ -1,46 +1,51 @@
-org 0x7C00
-bits 16
+org 0x7C00           
+bits 16              
 
 start:
-    cli
-    mov ax, 0 
+    xor ax, ax
     mov ds, ax
-    mov ss, ax
-    mov sp, 0x7C00 
-    sti
-
-; позиция окраса итд
-mov ah, 0x06
-mov al, 0
-mov bh, 0xF0
-mov ch, 0
-mov cl, 0
-mov dh, 24
-mov dl, 79
-int 0x10
-
-; терь курсор
-mov ah, 0x02
-mov bh, 0
-mov dh, 0
-mov dl, 0
-int 0x10
-
-mov si, message
+    mov es, ax  
+   
+    int 0x10        
+mov si, hello_os 
 print:
 lodsb
 cmp al, 0
-je halt
-mov ah, 0x0E
-mov bl, 0xF0
+je printl
+mov ah, 0x0e
 int 0x10
 jmp print
 
+mov si, helping_l
+printl:
+lodsb
+cmp al, 0
+je key
+mov ah, 0x0e
+int 0x10
+jmp print
+
+mov si, help
+key:
+    mov ah, 0x00
+    int 0x16          
+    cmp al, 'h'        
+    jne key        
+mov si, help      
+print_help:
+    lodsb              
+    cmp al, 0         
+    je key             
+    mov ah, 0x0e       
+    int 0x10           
+    jmp print_help  
+    \
 halt:
-jmp halt
+    jmp halt       
 
-
-message db "KIRILLISAEV_OS", 0
-
+help db "https://github.com/tkitty3/KirillIsaev_OS.git", 13, 10, 13, 10, 0
+hello_os db "KIRILLISAEV_OS", 13, 10, 13, 10, 0
+helping_l db "press h", 13, 10, 0
 times 510 - ($ - $$) db 0  
-dw 0xAA55
+dw 0xAA55            
+
