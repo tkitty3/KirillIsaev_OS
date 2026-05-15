@@ -1,12 +1,13 @@
 org 0x7C00
 bits 16
+
 start:
 cli
 mov ax, 0 ; системная хрень для зануления
 mov ds, ax
 mov es, ax
 mov ss, ax
-mov sp, 0x7C00 ; зовем биос из 1 строчки (кто вообще будет этр читать)
+mov sp, 0x7C00 ; адрес из 1 строки (кто вообще будет этр читать)
 sti
 
 mov ah, 0x06 ;очистка экрана от надписей биоса шоб был только кирюша
@@ -40,11 +41,12 @@ jmp print
 
 halt:
 cli
+jmp .loop
 
 .loop:
 hlt 
 jmp .loop
 
 message: db "KIRILLISAEV_OS", 0 ;когда кирилл и исаев
-times 510 - ($ - $$) db 0  ;зануление остатка на 510бит
+times 510 - ($ - $$) db 0  ;зануление остатка на 510байт
 dw 0xAA55
