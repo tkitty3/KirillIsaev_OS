@@ -8,6 +8,8 @@ Download in Linux:
 
 1. Download main.asm
 
-2. Run ./run.sh
+2. chmod +x run.sh
 
-3. Use!
+3. Run ./run.sh
+
+4. Use!
