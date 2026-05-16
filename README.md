@@ -1,15 +1,12 @@
 # KirillIsaev_OS
 
-KirillIsaev_OS - новая операционная система написанная на ассемблер с новым загрузчиком
+
+KirillIsaev_OS is a new operating system written in assembler and C with a new GRUB bootloader.
 
 
 
 Download in Linux:
 
-1. Download main.asm
-
-2. chmod +x run.sh
-
-3. Run ./run.sh
-
-4. Use!
+1. DOWNLOAD ONLY KIRILLISAEVOS.iso
+2. Make your boot flash with this iso file
+3. Use!
