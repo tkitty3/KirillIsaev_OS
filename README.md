@@ -10,3 +10,8 @@ Download in Linux:
 1. DOWNLOAD ONLY KIRILLISAEVOS.iso
 2. Make your boot flash with this iso file
 3. Use!
+
+Download in Windows:
+1. Download Rufus
+2. Make your boot flash with help Rufus this iso file
+3. Use!
