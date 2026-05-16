@@ -1,4 +1,4 @@
-# KirillIsaev_OS
+# KirillIsaev_OS version 1.0
 
 
 KirillIsaev_OS is a new operating system written in assembler and C with a new GRUB bootloader.
